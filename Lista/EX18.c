@@ -5,7 +5,7 @@ int main(){
 	printf("Informe a idadde do nadador:");
 	scanf("%i", &idade);
 	while(idade<5){
-		printf("Idade inválida! Informe uma idade válida");
+		printf("Idade invÃ¡lida! Informe uma idade vÃ¡lida");
 		scanf("%i", &idade);
 	}
 	switch(idade){
