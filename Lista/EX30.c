@@ -6,13 +6,13 @@ int main(){
 	printf("Informe a nota 1:");
 	scanf("%f", &p1);
 	while((p1>10)||(p1<0)){
-		printf("Nota inválida! Informe uma nota válida:");
+		printf("Nota invÃ¡lida! Informe uma nota vÃ¡lida:");
 		scanf("%f", p1);
 	}
 	printf("Informe a nota 2:");
 	scanf("%f", &p2);
 	while((p2>10)||(p2<0)){
-		printf("Nota inválida! Informe uma nota válida:");
+		printf("Nota invÃ¡lida! Informe uma nota vÃ¡lida:");
 		scanf("%f", p2);
 	}
 	media=(p1+p2)/2;
