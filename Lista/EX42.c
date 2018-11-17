@@ -13,7 +13,7 @@ int main(){
 		i=tolower(i);
 
 		while((i!='h')&&(i!='m')){
-			printf("Sexo inv·lido! Informe sexo v·lido[H/M]");
+			printf("Sexo inv√°lido! Informe sexo v√°lido[H/M]");
 			scanf("%s", &i);
 		}
 		if(i=='h'){
