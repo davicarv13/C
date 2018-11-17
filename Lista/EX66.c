@@ -34,6 +34,6 @@ __fpurge(stdin);
 #elif defined WIN32
 fflush(stdin);
 #else
-#error Plataforma n„o suportada
+#error Plataforma n√£o suportada
 #endif
 }
