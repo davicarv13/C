@@ -1,0 +1,1 @@
+Soma da segunda, quarta e sexta colunas da matriz: 84
