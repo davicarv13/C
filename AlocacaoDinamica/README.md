@@ -35,3 +35,5 @@ endereço do maior valor. Essa função deve obedecer ao protótipo: int**invert
 vet);
 
 8) Media de notas de um vetor gerador dinamicamente
+
+9) Matriz de notas gerada dinamicamente
