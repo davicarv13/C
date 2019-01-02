@@ -1,0 +1,1 @@
+1) Vetor de Structs dinamicamente alocado
