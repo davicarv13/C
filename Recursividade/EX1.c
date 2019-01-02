@@ -14,7 +14,7 @@ int main(){
 }
 
 int calculaPotencia(int x, int n){
-	if(n=0){
+	if(n==00){
 		return 1;
 	}
 	else{
