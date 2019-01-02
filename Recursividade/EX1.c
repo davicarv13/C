@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int calculaPotencia(int x, int n);
 
 int main(){
 	int x, n;
-
+	system("clear || cls");
 	printf("Informe a base:");
 	scanf(" %d", &x);
 	getchar();
@@ -14,7 +15,7 @@ int main(){
 }
 
 int calculaPotencia(int x, int n){
-	if(n==00){
+	if(n==0){
 		return 1;
 	}
 	else{
