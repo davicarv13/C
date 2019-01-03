@@ -10,4 +10,6 @@
 
 6) Calcula MDC
 
-8) Multiplicação de dois números naturais, através de somas sucessivas
+7) Multiplicação de dois números naturais, através de somas sucessivas
+
+8)  Calculo de sequencia 1+1/2+1/3...1/N utilizando somas sucessivas 
