@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int converteBin(int n);
+void converteBin(int n);
 
 int main(){
 	int n;
@@ -13,12 +13,18 @@ int main(){
 	printf("\n\n");
 }
 
-int converteBin(int n){
-	if(n<2){
-		printf("%d", 1);
+void converteBin(int n){
+	if(n==0){
+		printf("%d", 0);
 	}
 	else{
-		converteBin(n/2);
-		printf("%d", n%2);
+		if(n<2){
+		printf("%d", 1);
+		}
+		else{
+			converteBin(n/2);
+			printf("%d", n%2);
+		}	
 	}
+	
 }
