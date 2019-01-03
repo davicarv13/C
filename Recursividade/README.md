@@ -9,3 +9,5 @@
 5) Imprime um numero de base decimal para binario
 
 6) Calcula MDC
+
+8) Multiplicação de dois números naturais, através de somas sucessivas
