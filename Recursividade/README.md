@@ -7,3 +7,5 @@
 4) Conta quantas ocorrencias de um numero k existem num numero n
 
 5) Imprime um numero de base decimal para binario
+
+6) Calcula MDC
