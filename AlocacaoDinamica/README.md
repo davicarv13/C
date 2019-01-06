@@ -36,4 +36,4 @@ vet);
 
 8) Media de notas de um vetor gerador dinamicamente
 
-9) Matriz de notas gerada dinamicamente
+9) Calculo das raizes de uma equacao do segundo grau
