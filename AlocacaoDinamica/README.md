@@ -37,3 +37,5 @@ vet);
 8) Media de notas de um vetor gerador dinamicamente
 
 9) Calculo das raizes de uma equacao do segundo grau
+
+10) Faça uma função recursiva que permita inverter um número inteiro N. Ex: 123 - 321
