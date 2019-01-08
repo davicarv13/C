@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void imprimePares(int n, int k);
+
+int main(){
+
+	int n, k=0;
+
+	system("clear || cls");
+
+	printf("Informe um numero par:");
+	scanf("%d", &n);
+	while(n%2!=0){
+		printf("Numero nao e par!\n");
+		printf("Informe um numero par:");
+		scanf("%d", &n);
+	}
+	printf("Numeros pares de 1 ate %d:\n", n);
+
+	imprimePares(n, k);
+
+	printf("\n\n");
+}
+
+void imprimePares(int n, int k){
+	if(k%2==0){
+		printf("%d\n", k);
+		if(k==n){
+			exit(0);
+		}
+	}
+	imprimePares(n, k+1);
+}
