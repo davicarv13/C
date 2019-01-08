@@ -16,4 +16,4 @@
 
 9) Faça uma função recursiva que permita inverter um número inteiro N. Ex: 123 - 321
 
-10) Imprime os numeros pares de 0 ate N
+10) Imprime os numeros pares de 0 ate N em ordem crescente
