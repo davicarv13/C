@@ -16,7 +16,7 @@ int main(){
 		printf("Informe um numero par:");
 		scanf("%d", &n);
 	}
-	printf("Numeros pares de 1 ate %d:\n", n);
+	printf("Numeros pares de 0 ate %d:\n", n);
 
 	imprimePares(n, k);
 
