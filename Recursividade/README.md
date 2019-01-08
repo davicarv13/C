@@ -15,3 +15,5 @@
 8) Calculo de sequencia 1+1/2+1/3...1/N utilizando somas sucessivas 
 
 9) Faça uma função recursiva que permita inverter um número inteiro N. Ex: 123 - 321
+
+10) Imprime os numeros pares de 0 ate N
