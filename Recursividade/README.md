@@ -19,3 +19,5 @@
 10) Imprime os numeros pares de 0 ate N em ordem crescente
 
 11) Imprime os numeros pares de 0 ate N em ordem decrescente
+
+12) Fatorial duplo de um numero N impar
