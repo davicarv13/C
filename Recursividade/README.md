@@ -22,4 +22,4 @@
 
 12) Fatorial duplo de um numero N impar
 
-14) Verifica palindromo
+13) Verifica palindromo
