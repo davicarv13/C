@@ -1,3 +1,5 @@
-1) Uso da função 'setlocale'
+setlocalce.c - Uso da função 'setlocale'
 
-2) Uso da biblioteca 'time.h'
+time.c - Uso da biblioteca 'time.h'
+
+ponteiroFuncao.c - Uso de ponteiros para funcoes
