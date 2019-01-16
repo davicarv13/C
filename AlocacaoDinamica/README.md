@@ -40,4 +40,4 @@ vet);
 
 10) Soma duas matrizes geradas dinamicamente
 
-
+11) Alocacao dinámica de structs
