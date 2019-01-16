@@ -1,0 +1,1 @@
+socket.c - Criação de socket para conexao com a internet
