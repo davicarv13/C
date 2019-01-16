@@ -38,6 +38,6 @@ vet);
 
 9) Calculo das raizes de uma equacao do segundo grau
 
-10) Soma duas matrizes geradas dinamicamente
+10) Soma duas matrizes geradas dinamicamente, utilizando ponteiro para funções
 
 11) Alocacao dinámica de structs

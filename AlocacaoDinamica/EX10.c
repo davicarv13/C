@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+void executa(void (*funcao)(int **, int**, int **, int, int), int** A, int** B, int** C, int m, int n);
+
 void preencheMatrizes(int** A, int** B, int m, int n);
 void geraMatrizSoma(int** A, int** B, int** C, int m, int n);
 void imprimematrizes(int** A, int** B, int **C, int m, int n);
@@ -32,8 +34,11 @@ int main(){
 	}
 
 	preencheMatrizes(A, B, m, n);
-	geraMatrizSoma(A, B, C, m, n);
-	imprimematrizes(A, B, C, m, n);
+	//geraMatrizSoma(A, B, C, m, n);
+	//imprimematrizes(A, B, C, m, n);
+
+	executa(geraMatrizSoma, A, B, C, m, n);
+	executa(imprimematrizes, A, B, C, m, n);
 
 	for(i=0; i<m; i++){
 		free(A[i]);
@@ -46,6 +51,10 @@ int main(){
 	A=NULL;
 	B=NULL;
 	C=NULL;
+}
+
+void executa(void (*funcao)(int **, int**, int **, int, int), int** A, int** B, int** C, int m, int n){
+	funcao(A, B, C, m, n);
 }
 
 void preencheMatrizes(int** A, int** B, int m, int n){
