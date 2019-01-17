@@ -25,3 +25,5 @@
 13) Verifica palindromo
 
 14) Verifica o menor elemento de um vetor. Utilização de variáveis staticas
+
+15) Escreva uma função recursiva que calcule a soma de dois números naturais, através de incrementos sucessivos (Ex.: 3 + 2 = ++(++3)).
