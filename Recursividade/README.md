@@ -23,3 +23,5 @@
 12) Fatorial duplo de um numero N impar
 
 13) Verifica palindromo
+
+14) Verifica o menor elemento de um vetor. Utilização de variáveis staticas
