@@ -29,3 +29,5 @@
 15) Escreva uma função recursiva que calcule a soma de dois números naturais, através de incrementos sucessivos (Ex.: 3 + 2 = ++(++3)).
 
 16) Faça uma função recursiva que permita calcular a média um vetor de tamanho N.
+
+17) Escreva uma função recursiva que calcule a soma dos primeiros n cubos: S(n) = 1 3 + 2 3 + ... + n 3
