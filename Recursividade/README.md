@@ -33,3 +33,5 @@
 17) Escreva uma função recursiva que calcule a soma dos primeiros n cubos: S(n) = 1 3 + 2 3 + ... + n 3
 
 18) Escreva, usando a linguagem C, uma função recursiva, SomaSerie(i,j,k: inteiro): inteiro, que devolva a soma da série de valores do intervalo [i,j], com incremento k.
+
+19) Fatorial quadruplo
