@@ -15,4 +15,8 @@ tela.
 (vôos) e A = 5 (aeroportos) e:
 • Crie e leia um vetor de voos, sendo que cada voo contém um código de aeroporto
 de origem e um de destino.
-• Crie um vetor de aeroportos, sendo que cada aeroporto conté
+• Crie um vetor de aeroportos, sendo que cada aeroporto contém
+
+6) Cria uma agenda de compromissos com estruturas
+
+7) Criação de três listas encadeadas
