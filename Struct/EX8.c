@@ -18,10 +18,11 @@ int main(){
 
     l1.prox=&l2;
     l2.prox=&l3;
-    l4.prox=0;
-    l5.prox=0;
+    l3.prox=&l4;
+    l4.prox=&l5;
+    l5.prox=(livro *)0;
 
-    for(gancho=&l1; gancho->prox!=0; gancho=gancho->prox){
+    for(gancho=&l1; gancho->prox!=NULL; gancho=gancho->prox){
     	system("clear || cls");
     	printf("Informe o titulo:");
     	scanf("%[^\n]s", gancho->titulo);
@@ -39,7 +40,7 @@ int main(){
     
     printf("Livros:\n\n");
 
-    for(gancho=&l1; gancho->prox!=0; gancho=gancho->prox){
+    for(gancho=&l1; gancho->prox!=NULL; gancho=gancho->prox){
     	i=0;
     	teste=0;
     	while(gancho->titulo[i]!='\0' && tituloProcura[i]!='\0'){
@@ -47,6 +48,7 @@ int main(){
     			teste=1;
     			break;
     		}
+            i++;
     	}
     	if(teste!=1){
     		printf("- %s\n", gancho->titulo);
