@@ -20,3 +20,5 @@ de origem e um de destino.
 6) Cria uma agenda de compromissos com estruturas
 
 7) Criação de três listas encadeadas
+
+8) Cria lista encadeadas de structs que descrevem livros. Um titulo a ser informado pelo usuário deve ser procurado na lista
