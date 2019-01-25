@@ -22,3 +22,9 @@ de origem e um de destino.
 7) Criação de três listas encadeadas
 
 8) Cria lista encadeadas de structs que descrevem livros. Um titulo a ser informado pelo usuário deve ser procurado na lista
+
+9) Faça um programa que leia os dados de 10 alunos (Nome, matricula, Média Final), arma-
+zenando em um vetor. Uma vez lidos os dados, divida estes dados em 2 novos vetores,
+o vetor dos aprovados e o vetor dos reprovados, considerando a média mı́nima para a
+aprovação como sendo 6.0. Exibir na tela os dados do vetor de aprovados, seguido dos
+dados do vetor de reprovados.
