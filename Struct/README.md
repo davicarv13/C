@@ -28,3 +28,13 @@ zenando em um vetor. Uma vez lidos os dados, divida estes dados em 2 novos vetor
 o vetor dos aprovados e o vetor dos reprovados, considerando a média mı́nima para a
 aprovação como sendo 6.0. Exibir na tela os dados do vetor de aprovados, seguido dos
 dados do vetor de reprovados.
+
+10) Faça um programa que gerencie o estoque de um mercado e:
+• Crie e leia um vetor de 5 produtos, com os dados: código (inteiro), nome (máximo
+15 letras), preço e quantidade.
+• Leia um pedido, composto por um código de produto e a quantidade. Localize
+este código no vetor e, se houver quantidade suficiente para atender ao pedido
+integralmente, atualize o estoque e informe o usuário. Repita este processo até ler
+um código igual a zero.
+Se por algum motivo não for possı́vel atender ao pedido, mostre uma mensagem infor-
+mando qual erro ocorreu.
