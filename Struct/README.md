@@ -47,3 +47,5 @@ float z;
 };
 para representar um vetor no R 3 , implemente um programa que calcule a soma de dois
 vetores.
+
+12) Cálculo do produto escalar e vetorial de dois vetores
