@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TAM 5
+#define TAM 15
 
 void preencheVet(int *vet);
 void bubbleSort(int *vet);
