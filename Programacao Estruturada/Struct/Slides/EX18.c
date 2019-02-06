@@ -20,7 +20,7 @@ int main(){
 void preencheVet(int *vet, int n){
 	int i;
 	for(i=0; i<n; i++){
-		vet[i]=rand()%10+1;
+		vet[i]=rand()%50+1;
 	}
 	printf("Vetor:\n");
 	for(i=0; i<n; i++){
