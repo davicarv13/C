@@ -1,16 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-#define TAM 5
+#define TAM 20
 
 void preencheVet(int *vet);
+void imprimeVetNaoOrdenado(int *vet);
 void selectionSort(int *vet);
 void imprimeVetOrdenado(int *vet);
 
 int main(){
 	system("clear || cls");
-	int *vet=calloc(TAM, sizeof(vet));;
+
+	srand((unsigned)time(NULL));
+
+	int *vet=malloc(TAM*sizeof(vet));;
+
 	preencheVet(vet);
+	imprimeVetNaoOrdenado(vet);
 	selectionSort(vet);
 	imprimeVetOrdenado(vet);
 
@@ -19,12 +26,23 @@ int main(){
 }
 void preencheVet(int *vet){
 	int i;
-	printf("Informe valores para o vetor:");
 	for(i=0; i<TAM; i++){
-		scanf("%d", &vet[i]);
-		getchar();
+		vet[i]=rand()%30+1;
 	}	
 }
+
+void imprimeVetNaoOrdenado(int *vet){
+	int i;
+
+	printf("Vetor nao ordenado:\n");
+
+	for(i=0; i<TAM; i++){
+		printf("%d ", vet[i]);
+	}
+
+	printf("\n");
+}
+
 void selectionSort(int *vet){
 	int i, j, aux, menor=vet[0], pos;
 	for(i=0; i<TAM; i++){
