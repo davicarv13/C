@@ -7,30 +7,30 @@ typedef struct{
 	float y;
 }Ponto;
 
-void preenchePontos(Ponto *pontos);
-float calculaDistancia(Ponto *pontos);
+void preenchePonto(Ponto *ponto);
+float calculaDistancia(Ponto *pontoA, Ponto *pontoB);
 
 int main(){
-	Ponto *pontos=malloc(2*sizeof(Ponto));
+	Ponto *pontoA, *pontoB;
+    printf("Ponto A:\n");
+    preenchePonto(pontoA);
+    printf("Ponto B:\n");
+	preenchePonto(pontoB);
 
-	preenchePontos(pontos);
-
-	printf("Distancia entre os pontos: %.2f", calculaDistancia(pontos));
+	printf("Distancia entre os pontos: %.2f", calculaDistancia(pontoA, pontoB));
 }
 
-void preenchePontos(Ponto *pontos){
-	int i;
-	for(i=0; i<2; i++){
-		system("clear || cls");
-		printf("Informe a cordenada X do ponto %d:", i+1);
-		scanf("%f", &pontos[i].x);
-		getchar();
+void preenchePonto(Ponto *ponto){
+	system("clear || cls");
+	printf("Informe a cordenada X:");
+	scanf("%f", &ponto->x);
+	getchar();
 
-		printf("Informe a cordenada Y do ponto %d:", i+1);
-		scanf("%f", &pontos[i].y);
-		getchar();
-	}
+	printf("Informe a cordenada Y:");
+	scanf("%f", &ponto->y);
+	
+	system("clear || cls");
 }
-float calculaDistancia(Ponto *pontos){
-	return sqrt(pow(pontos[1].x-pontos[0].x, 2)+pow(pontos[1].y-pontos[0].y, 2));
+float calculaDistancia(Ponto *pontoA, Ponto *pontoB){
+	return sqrt(pow((pontoB->x)-(pontoA->x), 2)+pow((pontoA->y)-(pontoA->y), 2));
 }
