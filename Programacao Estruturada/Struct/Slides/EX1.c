@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TAM 20
+#define TAM 2
 
 typedef struct{
 	char nome[50];
@@ -10,55 +10,50 @@ typedef struct{
 }Conta;
 
 void lp();
-void preencheClientes(Conta *clientes);
-int saldoAcima1000(Conta *clientes);
+int preencheClientes(Conta *cliente);
+int saldoAcima1000(const float *saldo);
 
 int main(){
-	Conta *clientes=malloc(TAM*sizeof(Conta));
-
-	preencheClientes(clientes);
+	Conta cliente;
 	
-	printf("Quantidade de funcionários com salário:%d \n", saldoAcima1000(clientes));
-
-	free(clientes);
-	cientes=NULL;
+	printf("Quantidade de funcionários com salário:%d \n", preencheClientes(&cliente));
 }
 
 void lp(){
 	system("clear || cls");
 }
 
-void preencheClientes(Conta *clientes){
-	int i;
+int preencheClientes(Conta *cliente){
+	int i, quant=0;
 
 	lp();
 
 	for(i=0; i<TAM; i++){
 		printf("Informe o nome:");
-		scanf("%[^\n]s", clientes[i].nome);
+		scanf("%[^\n]s", cliente->nome);
 		getchar();
 
 		printf("Informe o número da conta:");
-		scanf("%d", &clientes[i].numeroConta);
+		scanf("%d", &cliente->numeroConta);
 		getchar();
 
 		printf("Informe o saldo:");
-		scanf("%f", &clientes[i].saldo);
+		scanf("%f", &cliente->saldo);
 		getchar();
+
+		quant+=saldoAcima1000(&cliente->saldo);
 
 		lp();
 	}
+
+	return quant;
 }
 
-int saldoAcima1000(Conta *clientes){
-	int i, cont=0;
-
-	lp();
-
-	for(i=0; i<TAM; i++){
-		if(clientes[i].saldo>1000){
-			cont++;
-		}
+int saldoAcima1000(const float *saldo){
+	if((*saldo)>1000){
+		return 1;
 	}
-	return cont;
+	else{
+		return 0;
+	}
 }
