@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <locale.h>
 #include <stdlib.h>
 
-#define TAM 2
+#define TAM 20
 
 typedef struct{
 	char nome[50];
@@ -16,8 +15,6 @@ int saldoAcima1000(Conta *clientes);
 
 int main(){
 	Conta *clientes=malloc(TAM*sizeof(Conta));
-
-	setlocale(LC_ALL, "Portuguese");
 
 	preencheClientes(clientes);
 	
