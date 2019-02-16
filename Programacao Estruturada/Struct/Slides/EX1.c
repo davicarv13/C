@@ -19,6 +19,9 @@ int main(){
 	preencheClientes(clientes);
 	
 	printf("Quantidade de funcionários com salário:%d \n", saldoAcima1000(clientes));
+
+	free(clientes);
+	cientes=NULL;
 }
 
 void lp(){
