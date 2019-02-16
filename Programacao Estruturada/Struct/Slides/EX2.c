@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <locale.h>
 #include <stdlib.h>
 
 #define TAM 20
@@ -9,62 +8,58 @@
 typedef struct{
 	char nome[50];
 	int numeroConta;
-	float salario;
+	float saldo;
 }Conta;
 
 void lp();
 
 void preencheClientes(Conta *clientes);
-int acima3Salarios(Conta *clientes);
+int acima3Salarios(const float *saldo);
 
 int main(){
-	Conta *clientes=malloc(TAM*sizeof(Conta));
 
-	setlocale(LC_ALL, "Portuguese");
+	Conta cliente;
 
-	preencheClientes(clientes);
+	int quant=0, i;
+
+	for(i=0; i<TAM; i++){
+		preencheClientes(&cliente);
+		quant+=acima3Salarios(&cliente.saldo);
+	}
 	
-	printf("Quantidade de funcionários com mais de três salários:%d", acima3Salarios(clientes));
-
-	free(clientes);
-	clientes=NULL;
+	printf("Quantidade de funcionários com mais de três salários:%d\n", quant);
 }
 
 void lp(){
 	system("clear || cls");
 }
 
-void preencheClientes(Conta *clientes){
+void preencheClientes(Conta *cliente){
 	int i;
 
 	lp();
+	
+	printf("Informe o nome:");
+	scanf("%[^\n]s", cliente->nome);
+	getchar();
 
-	for(i=0; i<TAM; i++){
-		printf("Informe o nome:");
-		scanf("%[^\n]s", clientes[i].nome);
-		getchar();
+	printf("Informe o número da conta:");
+	scanf("%d", &cliente->numeroConta);
+	getchar();
 
-		printf("Informe o número da conta:");
-		scanf("%d", &clientes[i].numeroConta);
-		getchar();
-
-		printf("Informe o saldo:");
-		scanf("%f", &clientes[i].salario);
-		getchar();
-
-		lp();
-	}
-}
-
-int acima3Salarios(Conta *clientes){
-	int i, cont=0;
+	printf("Informe o saldo:");
+	scanf("%f", &cliente->saldo);
+	getchar();
 
 	lp();
+}
 
-	for(i=0; i<TAM; i++){
-		if(clientes[i].salario>(3*880)){
-			cont++;
-		}
+int acima3Salarios(const float *saldo){
+
+	if((*saldo)<=(3*SAL)){
+		return 1;
 	}
-	return cont;
+	else{
+		return 0;
+	}
 }
