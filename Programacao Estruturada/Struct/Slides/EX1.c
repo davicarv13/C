@@ -2,12 +2,12 @@
 #include <locale.h>
 #include <stdlib.h>
 
-#define TAM 20
+#define TAM 2
 
 typedef struct{
 	char nome[50];
 	int numeroConta;
-	float salario;
+	float saldo;
 }Conta;
 
 void lp();
@@ -21,7 +21,7 @@ int main(){
 
 	preencheClientes(clientes);
 	
-	printf("Quantidade de funcionários com 30 anos ou mais:%d", saldoAcima1000(clientes));
+	printf("Quantidade de funcionários com salário:%d \n", saldoAcima1000(clientes));
 }
 
 void lp(){
@@ -43,7 +43,7 @@ void preencheClientes(Conta *clientes){
 		getchar();
 
 		printf("Informe o saldo:");
-		scanf("%f", &clientes[i].salario);
+		scanf("%f", &clientes[i].saldo);
 		getchar();
 
 		lp();
@@ -55,8 +55,8 @@ int saldoAcima1000(Conta *clientes){
 
 	lp();
 
-	for(i=0; i<30; i++){
-		if(clientes[i].salario>1000){
+	for(i=0; i<TAM; i++){
+		if(clientes[i].saldo>1000){
 			cont++;
 		}
 	}
