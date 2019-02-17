@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TAM 20
+#define TAM 2
 
 typedef struct{
 	char nome[50];
@@ -17,7 +17,7 @@ int main(){
 
 	Conta cliente;
 	
-	printf("Quantidade de funcionários com salário:%d \n", preencheClientes(&cliente));
+	printf("Quantidade de clientes com saldo acima de R$1000,00:%d \n", preencheClientes(&cliente));
 }
 
 void lp(){
