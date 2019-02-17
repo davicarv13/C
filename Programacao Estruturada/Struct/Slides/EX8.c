@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TAM 20
+#define TAM 15
 
 void preencheVet(int *vet);
 void imprimeVetNaoOrdenado(int *vet);
