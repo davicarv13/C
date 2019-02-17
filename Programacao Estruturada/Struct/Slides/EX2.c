@@ -27,7 +27,7 @@ int main(){
 		quant+=acima3Salarios(&cliente.saldo);
 	}
 	
-	printf("Quantidade de funcionários com mais de três salários:%d\n", quant);
+	printf("Quantidade de clientes com saldo de ate três salários:%d\n", quant);
 }
 
 void lp(){
