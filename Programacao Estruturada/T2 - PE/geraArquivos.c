@@ -1,3 +1,4 @@
+// PE-T2-Pedro-Davi
 //Gerador de arquivos
 
 #include <stdio.h>
@@ -5,9 +6,6 @@
 #include <time.h>
 
 void geraArquivo(FILE *, int n);
-/*void geraArquivoB(FILE *arqA);
-void geraArquivoC(FILE *arqA);
-void geraArquivoD(FILE *arqA);*/
 
 int main(){
 	FILE *arqA, *arqB, *arqC, *arqD;
@@ -32,17 +30,7 @@ int main(){
 
 void geraArquivo(FILE *arq, int n){
 	int i;
-
 	for(i=0; i<n; i++){
 		fprintf(arq, "%d ", rand()%10000+1);
 	}
 }
-/*void geraArquivoB(FILE *arqA){
-
-}
-void geraArquivoC(FILE *arqA){
-
-}
-void geraArquivoD(FILE *arqA){
-
-}*/

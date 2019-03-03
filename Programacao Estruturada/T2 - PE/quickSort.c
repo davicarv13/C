@@ -1,110 +1,92 @@
+// PE-T2-Pedro-Davi
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-clock_t calculaTempo();
-clock_t calculaTempo();
+#define TAMA 5000
+#define TAMB 10000
+#define TAMC 20000
+#define TAMD 30000
 
-void lerVetor(int *vet, FILE *arq, int n);
-void ordenaVetor(int *vet, int esq, int dir);
-void imprimeVet(int *vet, FILE *arq, int n);
+void lerVetor(int vetor[], FILE *arqVetor, int tamanho);
+void calcularTempoDeOrdenacao(int vetor[], int tamanho, char nome[]);
+void ordenarVetor(int vet[], int esq, int dir);
+void imprimirVetor(int vetor[], FILE *arqVetor, int tamanho);
 
 int main(){
+	
+	system("clear || cls");
+
+	int vetorA[TAMA];
+	int vetorB[TAMB];
+	int vetorC[TAMC];
+	int vetorD[TAMD];
+
+	FILE *arqVetorA, *arqVetorB, *arqVetorC, *arqVetorD, *arqOrdenadoA, *arqOrdenadoB, *arqOrdenadoC, *arqOrdenadoD;
+
+	arqVetorA = fopen("A.txt", "r");
+	arqVetorB = fopen("B.txt", "r");
+	arqVetorC = fopen("C.txt", "r");
+	arqVetorD = fopen("D.txt", "r");
+
+	arqOrdenadoA = fopen("Ordenado-A.txt", "w");
+	arqOrdenadoB = fopen("Ordenado-B.txt", "w");
+	arqOrdenadoC = fopen("Ordenado-C.txt", "w");
+	arqOrdenadoD = fopen("Ordenado-D.txt", "w");
     
-    system("clear || cls");
-
-    clock_t inicio;
-    clock_t fim;
-
-    float tempo;
-
-    int *vetA=calloc(5000, sizeof(vetA));
-    int *vetB=calloc(10000, sizeof(vetB));
-    int *vetC=calloc(20000, sizeof(vetC));
-    int *vetD=calloc(30000, sizeof(vetD));
-
-    FILE *arqA=fopen("A.txt", "r");
-    FILE *arqB=fopen("B.txt", "r");
-    FILE *arqC=fopen("C.txt", "r");
-    FILE *arqD=fopen("D.txt", "r");
-
-    FILE *ordenadoA=fopen("Ordenado-A.txt", "w");
-    FILE *ordenadoB=fopen("Ordenado-B.txt", "w");
-    FILE *ordenadoC=fopen("Ordenado-C.txt", "w");
-    FILE *ordenadoD=fopen("Ordenado-D.txt", "w");
-
-    lerVetor(vetA, arqA, 5000);
-    inicio=calculaTempo();
-    ordenaVetor(vetA, 0, 5000-1);
-    fim=calculaTempo();
-
-    tempo=(fim-inicio)/(double)(CLOCKS_PER_SEC);
-
-    imprimeVet(vetA, ordenadoA, 5000);
-
-    printf("Tempo de Ordenação Insertion Sort - A: %f segundos\n\n", tempo);
-
-    lerVetor(vetB, arqB, 10000);
-    inicio=calculaTempo();
-    ordenaVetor(vetB, 0, 10000-1);
-    fim=calculaTempo();
-
-    tempo=(fim-inicio)/(double)(CLOCKS_PER_SEC);
-
-    imprimeVet(vetB, ordenadoB, 10000);
-
-    printf("Tempo de Ordenação Insertion Sort - B: %f segundos\n\n", tempo);
-
-    lerVetor(vetC, arqC, 20000);
-    inicio=calculaTempo();
-    ordenaVetor(vetC, 0, 20000-1);
-    fim=calculaTempo();
-
-    tempo=(fim-inicio)/(double)(CLOCKS_PER_SEC);
-
-    imprimeVet(vetC, ordenadoC, 20000);
-
-    printf("Tempo de Ordenação Insertion Sort - C: %f segundos\n\n", tempo);
-
-    lerVetor(vetD, arqD, 30000);
-    inicio=calculaTempo();
-    ordenaVetor(vetD, 0, 30000-1);
-    fim=calculaTempo();
-
-    tempo=(fim-inicio)/(double)(CLOCKS_PER_SEC);
-
-    imprimeVet(vetD, ordenadoD, 30000);
-
-    printf("Tempo de Ordenação Insertion Sort - D: %f segundos\n\n", tempo);
-
-    fclose(arqA);
-    fclose(ordenadoA);
-    fclose(arqB);
-    fclose(ordenadoB);
-    fclose(arqC);
-    fclose(ordenadoC);
-    fclose(arqD);
-    fclose(ordenadoD);
-
-    free(vetA);
-    free(vetB);
-    free(vetC);
-    free(vetD);
+    // Vetor A
+	lerVetor(vetorA, arqVetorA, TAMA);
+	calcularTempoDeOrdenacao(vetorA, TAMA, "A");
+	imprimirVetor(vetorA, arqOrdenadoA, TAMA);
+    // Vetor B
+	lerVetor(vetorB, arqVetorB, TAMB);
+	calcularTempoDeOrdenacao(vetorB, TAMB, "B");
+	imprimirVetor(vetorB, arqOrdenadoB, TAMB);
+    // Vetor C
+	lerVetor(vetorC, arqVetorC, TAMC);
+	calcularTempoDeOrdenacao(vetorC, TAMC, "C");
+	imprimirVetor(vetorC, arqOrdenadoC, TAMC);
+    // Vetor D
+	lerVetor(vetorD, arqVetorD, TAMD);
+	calcularTempoDeOrdenacao(vetorD, TAMD, "D");
+	imprimirVetor(vetorD, arqOrdenadoD, TAMD);
+	
+    fclose(arqVetorA);
+    fclose(arqVetorB);
+	fclose(arqVetorC);
+    fclose(arqVetorD);
+    fclose(arqOrdenadoA);
+    fclose(arqOrdenadoB);
+    fclose(arqOrdenadoC);
+    fclose(arqOrdenadoD);
 }
 
-clock_t calculaTempo(){
-    return clock();
+void lerVetor(int vetor[], FILE *arqVetor, int tamanho){
+	int i;
+
+	for(i=0; i<tamanho; i++){
+		fscanf(arqVetor, "%d ", &vetor[i]);
+	}
 }
 
-void lerVetor(int *vet, FILE *arq, int n){
-    int i;
+void calcularTempoDeOrdenacao(int vetor[], int tamanho, char nome[]){
+	
+	clock_t tempoInicial;
+	clock_t tempoFinal;
+	float tempoDecorrido;
 
-    for(i=0; i<n; i++){
-        fscanf(arq, "%d ", &vet[i]);
-    }
+	tempoInicial = clock();
+	ordenarVetor(vetor, 0, tamanho -1);
+	tempoFinal = clock();
+
+	tempoDecorrido = (tempoFinal-tempoInicial)/(double)(CLOCKS_PER_SEC);
+
+	printf("Tempo de Ordenação QuickSort - Vetor %s: %f segundos\n", nome, tempoDecorrido);
+
 }
 
-void ordenaVetor(int *vet, int esq, int dir) {
+void ordenarVetor(int vet[], int esq, int dir) {
     int i, j, x, y;
      
     i = esq;
@@ -130,17 +112,16 @@ void ordenaVetor(int *vet, int esq, int dir) {
     }
      
     if(j > esq) {
-        ordenaVetor(vet, esq, j);
+        ordenarVetor(vet, esq, j);
     }
     if(i < dir) {
-        ordenaVetor(vet, i, dir);
+        ordenarVetor(vet, i, dir);
     }
 }
 
-void imprimeVet(int *vet, FILE *arq, int n){
-    int i;
-
-    for(i=0; i<n; i++){
-        fprintf(arq, "%d ", vet[i]);
-    }
+void imprimirVetor(int vetor[], FILE *arqVetor, int tamanho){
+	int i;
+	for(i = 0; i < tamanho; i++){
+		fprintf(arqVetor, "%d ", vetor[i]);
+	}
 }
