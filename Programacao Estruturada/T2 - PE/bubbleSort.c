@@ -79,6 +79,20 @@ int main(){
 	imprimeVet(vetD, ordenadoD, 30000);
 
 	printf("Tempo de Ordenação Bubble Sort - D: %f segundos\n\n", tempo);
+
+    fclose(arqA);
+	fclose(ordenadoA);
+	fclose(arqB);
+	fclose(ordenadoB);
+	fclose(arqC);
+	fclose(ordenadoC);
+	fclose(arqD);
+	fclose(ordenadoD);
+
+    free(vetA);
+    free(vetB);
+    free(vetC);
+    free(vetD);
 }
 
 clock_t calculaTempo(){

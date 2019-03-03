@@ -85,6 +85,11 @@ int main(){
 	fclose(ordenadoC);
 	fclose(arqD);
 	fclose(ordenadoD);
+
+    free(vetA);
+    free(vetB);
+    free(vetC);
+    free(vetD);
 }
 
 clock_t calculaTempo(){
