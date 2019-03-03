@@ -115,7 +115,7 @@ void lerVetor(int *vet, FILE *arq, int n){
 void ordenaVetor(int tabela[],int temp_tabela[],int esq, int dir)
 {
 
-    //para ordenar decrescente ative o código comentado abaixo dos if
+    //para ordenar crescente ative o código comentado abaixo dos if
 
 
     int meio, temp, i, j, k, t, m, comparacaoMerge=0, trocaMerge=0;
