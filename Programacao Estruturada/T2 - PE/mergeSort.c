@@ -98,6 +98,11 @@ int main(){
    free(auxVetB);
    free(auxVetC);
    free(auxVetD);
+
+   free(vetA);
+   free(vetB);
+   free(vetC);
+   free(vetD);
 }
 
 clock_t calculaTempo(){
