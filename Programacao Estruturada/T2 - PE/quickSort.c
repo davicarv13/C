@@ -107,10 +107,12 @@ void ordenaVetor(int *vet, int esq, int dir) {
     x = vet[(esq + dir) / 2];
      
     while(i <= j) {
+        //para fazer crescente, troque o sinal de vet[i] < x
         while(vet[i] > x && i < dir) {
             i++;
         }
-        while(x>vet[j] && j > esq) {
+        //para fazer crescente, troque o sinal de x<vet[j]
+        while(x > vet[j] && j > esq) {
             j--;
         }
         if(i <= j) {
