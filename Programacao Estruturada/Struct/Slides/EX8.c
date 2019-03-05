@@ -44,18 +44,18 @@ void imprimeVetNaoOrdenado(int *vet){
 }
 
 void selectionSort(int *vet){
-	int i, j, aux, menor=vet[0], pos;
-	for(i=0; i<TAM; i++){
-		for(j=i; j<TAM; j++){
-			if(vet[j]<menor){
-				menor=vet[j];		
-				pos=j;
+	int i, j, aux, posMenor;
+
+	for(i=0; i<n-1; i++){
+		posMenor=i;
+		for(j=i+1; j<n; j++){
+			if(vet[j]<vet[posMenor]){
+				posMenor=j;
 			}
 		}
 		aux=vet[i];
-		vet[i]=menor;
-		vet[pos]=aux;
-		menor=vet[i+1];
+		vet[i]=vet[posMenor];
+		vet[posMenor]=aux;
 	}
 }
 void imprimeVetOrdenado(int *vet){
