@@ -87,16 +87,20 @@ void calcularTempoDeOrdenacao(int vetor[], int tamanho, char nome[]){
 }
 
 void ordenarVetor(int vet[], int n){
-	int i, j, aux;
+	int i, j, aux, posMaior;
 
-	for(i=0; i<(n-1); i++){
-		for(j=(i+1); j>0; j--){
-			if(vet[j]>vet[j-1]){
-				aux=vet[j];
-				vet[j]=vet[j-1];
-				vet[j-1]=aux;
+	printf("Ordenando Vetor...\n\n");
+
+	for(i=0; i<n-1; i++){
+		posMaior=i;
+		for(j=i+1; j<n; j++){
+			if(vet[j]>vet[posMaior]){
+				posMaior=j;
 			}
 		}
+		aux=vet[i];
+		vet[i]=vet[posMaior];
+		vet[posMaior]=aux;
 	}
 }
 
