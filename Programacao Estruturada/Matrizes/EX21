@@ -45,7 +45,7 @@ int verificaDiagonalDominante(int A[][NUM]){
 			}
 		}
 
-		if(diagonal < soma){
+		if(diagonal<soma){
 			return 0;
 		}
 	}
