@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+#define NUM 10
+
+int verificaDiagonalDominante(int A[][NUM]);
+void geraMatriz(int A[][NUM]);
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	int A[NUM][NUM];
+
+	if(verificaDiagonalDominante(A) == 0){
+		printf("A matriz nao e diagonalmente dominante");
+	}
+	else{
+		printf("A matriz e diagonalmente dominante");
+	}
+}
+
+void geraMatriz(int A[][NUM]){
+	for(int i=0; i<NUM; i++){
+		for(int j=0; j<NUM; j++){
+			A[i][j]=rand()%10+1;
+		}
+	}
+}
+
+int verificaDiagonalDominante(int A[][NUM]){
+	int soma, diagonal, teste=0;
+
+	for(int i = 0; i < NUM; i++){
+		soma = 0;
+		for(int j = 0; j < NUM; j++){
+			if(i != j){
+				soma = abs(A[i][j]);
+			}
+			else{
+				diagonal = abs(A[i][j]);
+			}
+		}
+
+		if(diagonal < soma){
+			return 0;
+		}
+	}
+
+	return 1;
+}
