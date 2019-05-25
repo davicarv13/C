@@ -13,6 +13,8 @@ int main(){
 
 	int A[NUM][NUM];
 
+	geraMatriz(A);
+
 	if(verificaDiagonalDominante(A) == 0){
 		printf("A matriz nao e diagonalmente dominante");
 	}
