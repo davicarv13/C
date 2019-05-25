@@ -38,7 +38,7 @@ int verificaDiagonalDominante(int A[][NUM]){
 		soma = 0;
 		for(int j = 0; j < NUM; j++){
 			if(i != j){
-				soma = abs(A[i][j]);
+				soma += abs(A[i][j]);
 			}
 			else{
 				diagonal = abs(A[i][j]);
