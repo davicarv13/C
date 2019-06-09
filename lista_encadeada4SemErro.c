@@ -23,6 +23,7 @@ void insere_n_esima(lista_inicio lista, int n, int num);
 void exclui_n_esima(lista_inicio lista, int n);
 
 int retornaTamanho(lista_inicio lista);
+void esvaziarLista(lista_inicio lista);
 void listar(lista_inicio lista);
 
 int main(){
@@ -125,6 +126,16 @@ int main(){
 
 			case 8:
 				system("clear || cls");
+				if(retornaTamanho(lista) == 0){
+					printf("Lista vazia");
+				}			
+				else{
+					esvaziarLista(lista);
+				}
+			break;
+
+			case 9:
+				system("clear || cls");
 				listar(lista);
 			break;
 
@@ -144,7 +155,8 @@ int menu(){
 	printf("%-40s \t %d\n", "Inserir depois na n-esima posicao", 5);
 	printf("%-40s \t %d\n", "Excluir n-esima posicao", 6);
 	printf("%-40s \t %d\n", "Retorna tamanho", 7);
-	printf("%-40s \t %d\n", "Listar", 8);
+	printf("%-40s \t %d\n", "Esvaziar lista", 8);
+	printf("%-40s \t %d\n", "Listar", 9);
 	printf("%-40s \t %d\n", "Sair", 0);
 	scanf("%d", &op);
 	getchar();
@@ -296,6 +308,38 @@ int retornaTamanho(lista_inicio lista){
 	}
 
 	return i;
+}
+
+void esvaziarLista(lista_inicio lista){
+	lista_no auxiliar;
+	lista_no atual;
+
+	atual = lista->inicio;
+
+	int tam = retornaTamanho(lista);
+
+	while(atual != NULL){
+
+		auxiliar = atual;
+
+		if(auxiliar->proximo->proximo == NULL){
+			free(auxiliar->proximo); 
+			auxiliar->proximo = NULL;
+			if(lista->inicio->proximo == NULL){
+				free(lista->inicio->proximo);
+				lista->inicio = NULL;
+				break;
+			}
+			else{
+				atual = lista->inicio;
+			}
+		}
+		else{
+			atual = atual->proximo;
+		}
+	}	
+
+	lista->inicio = NULL;
 }
 
 void listar(lista_inicio lista){
