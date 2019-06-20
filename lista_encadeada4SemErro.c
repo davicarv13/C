@@ -311,49 +311,26 @@ int retornaTamanho(lista_inicio lista){
 }
 
 void esvaziarLista(lista_inicio lista){
-	lista_no auxiliar;
-	lista_no atual;
-
-	atual = lista->inicio;
-
-	int tam = retornaTamanho(lista);
-
-	while(atual != NULL){
-
-		auxiliar = atual;
-
-		if(auxiliar->proximo->proximo == NULL){
-			free(auxiliar->proximo); 
-			auxiliar->proximo = NULL;
+	if(lista->inicio != NULL){
+		lista_no auxiliar, atual;
+		atual = lista->inicio;
+		while(atual != NULL){
 			if(lista->inicio->proximo == NULL){
-				free(lista->inicio->proximo);
+				free(lista->inicio);
 				lista->inicio = NULL;
 				break;
 			}
 			else{
-				atual = lista->inicio;
+				auxiliar = atual;
+				if(atual->proximo->proximo == NULL){
+					free(auxiliar->proximo);
+					auxiliar->proximo = NULL;
+					atual = lista->inicio;
+				}
+				else{
+					atual = atual->proximo;
+				}
 			}
 		}
-		else{
-			atual = atual->proximo;
-		}
-	}	
-
-	lista->inicio = NULL;
+	}
 }
-
-void listar(lista_inicio lista){
-	lista_no atual;	
-
-	atual = lista->inicio;
-	if(atual != NULL){
-		while(atual != NULL){
-			printf("%d ", atual->num);
-			atual = atual->proximo;
-		}
-		printf("\n");
-	}
-	else{
-		printf("Lista vazia!\n");
-	}
-}	
