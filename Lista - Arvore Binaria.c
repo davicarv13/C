@@ -119,6 +119,9 @@ int verificaN(tipo_no** sub_raiz, int n)
       return esquerda+direita;
 }
 
+
+
+
 //Ex169
 int retornaMaiorValor(tipo_no **sub_raiz){
 	if(*sub_raiz != NULL){
@@ -129,7 +132,6 @@ int retornaMaiorValor(tipo_no **sub_raiz){
 			return (*sub_raiz)->dado;
 		}
 	}
-	return -1;
 }
 
 //Ex170
@@ -142,7 +144,6 @@ int retornaMenorValor(tipo_no** sub_raiz){
 			return (*sub_raiz)->dado;
 		}
 	}
-	return -1;
 }
 
 //Ex171
@@ -251,6 +252,59 @@ tipo_no* contem(tipo_no** sub_raiz, int dado){
 	}
 }
 
+//Refeitas v2
+int retornaMaiorValor2(tipo_no **sub_raiz){
+	if((*sub_raiz)->dir == NULL){
+		return (*sub_raiz)->dado;
+	}
+	else{
+		return retornaMaiorValor2(&((*sub_raiz)->dir));
+	}
+}
+
+int retornaMenorValor2(tipo_no **sub_raiz){
+	if((*sub_raiz)->esq == NULL){
+		return (*sub_raiz)->dado;
+	}
+	else{
+		return retornaMenorValor2(&((*sub_raiz)->esq));
+	}
+}
+
+int contaNos2(tipo_no** sub_raiz){
+	if(*sub_raiz == NULL){
+		return 0;
+	}
+	else{
+		return contaNos2(&((*sub_raiz)->esq)) + contaNos2(&((*sub_raiz)->dir)) + 1;
+	}
+}
+
+int contaNulls2(tipo_no** sub_raiz){
+	if(*sub_raiz == NULL){
+		return 1;
+	}
+	else{
+		return contaNulls2(&((*sub_raiz)->esq)) + contaNulls2(&((*sub_raiz)->dir));
+	}
+}
+
+int verificaN2(tipo_no **sub_raiz, int n){
+	if(*sub_raiz == NULL){
+		return 0;
+	}
+	if((*sub_raiz)->dado == n){
+		return 1;
+	}
+	if(n < (*sub_raiz)->dado){
+		return verificaN2(&((*sub_raiz)->esq), n);
+	}
+	else{
+		if(n > (*sub_raiz)->dado){
+			return verificaN2(&((*sub_raiz)->dir), n);
+		}
+	}
+}
 
 
 int main(){
@@ -273,10 +327,18 @@ int main(){
 	listar_pos_ordem(Arvore);
 	printf("\n");
 	
-	printf("Numero de nos:%d ", contaNos(Arvore));
-	printf("Numero de folhas da arvore: %d", numFolhas(Arvore));
-	
-	
+	printf("Maior valor: %d\n", retornaMaiorValor2(Arvore));
+	printf("Menor valor: %d\n", retornaMenorValor2(Arvore));
+	printf("Numero de nos:%d \n", contaNos2(Arvore));
+	printf("Numero de NULLs: %d\n", contaNulls2(Arvore));
+	printf("Numero de folhas da arvore: %d\n", numFolhas(Arvore));	
+	int n = 2;
+	if(verificaN2(Arvore, n) == 1){
+		printf("Valor %d existe na arvore\n", n);
+	}
+	else{
+		printf("Valor %d nao existe na arvore\n", n);
+	}
 }
 
     
