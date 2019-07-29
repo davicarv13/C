@@ -306,13 +306,74 @@ int verificaN2(tipo_no **sub_raiz, int n){
 	}
 }
 
+int numFolhas2(tipo_no** sub_raiz){
+	if(*sub_raiz == NULL){
+		return 0;
+	}
+	if((*sub_raiz)->esq == (*sub_raiz)->dir){
+		return 1;
+	}
+	else{
+		return numFolhas2(&((*sub_raiz)->esq)) + numFolhas2(&((*sub_raiz)->dir));
+	}
+}
+
+void insereRecursivo2(tipo_no** sub_raiz, int dado){
+	if(*sub_raiz == NULL){
+		*sub_raiz = (tipo_no*)malloc(sizeof(tipo_no));
+		(*sub_raiz)->dado = dado;
+		(*sub_raiz)->esq = NULL;
+		(*sub_raiz)->dir = NULL;
+ 	}
+ 	else{
+ 		if(dado < (*sub_raiz)->dado){
+ 			insereRecursivo2(&((*sub_raiz)->esq), dado);
+ 		}
+ 		else{
+ 			if(dado > (*sub_raiz)->dado){
+ 				insereRecursivo2(&((*sub_raiz)->dir), dado);
+ 			}
+ 		}
+ 	}
+}
+
+void insereIterativo2(tipo_no **sub_raiz, int dado){
+	if(*sub_raiz == NULL){
+		*sub_raiz = (tipo_no*)malloc(sizeof(tipo_no));
+		(*sub_raiz)->dado = dado;
+		(*sub_raiz)->esq = NULL;
+		(*sub_raiz)->dir = NULL;
+	}
+	else{
+		tipo_no* aux;
+		aux = *sub_raiz;
+		while(aux != NULL){
+			if(dado < aux->dado){
+				aux = aux->esq;
+			}
+			else{
+				if(dado > aux->dado){
+					aux = aux->dir;
+				}
+			}
+			if(aux == NULL){
+				aux = (tipo_no*)malloc(sizeof(tipo_no));
+				aux->dado = dado;
+				aux->esq = NULL;
+				aux->dir = NULL;
+				break;
+			}
+		}
+	}
+	
+}
 
 int main(){
 	int result;
 	tipo_arvore Arvore = NULL;
 	Arvore = criar_arvore();
 	
-	insereRecursivo(Arvore, 5);
+	insereIterativo2(Arvore, 5);
 	insereRecursivo(Arvore, 3);
 	insereRecursivo(Arvore, 7);
 	insereRecursivo(Arvore, 1);
@@ -331,7 +392,7 @@ int main(){
 	printf("Menor valor: %d\n", retornaMenorValor2(Arvore));
 	printf("Numero de nos:%d \n", contaNos2(Arvore));
 	printf("Numero de NULLs: %d\n", contaNulls2(Arvore));
-	printf("Numero de folhas da arvore: %d\n", numFolhas(Arvore));	
+	printf("Numero de folhas da arvore: %d\n", numFolhas2(Arvore));	
 	int n = 2;
 	if(verificaN2(Arvore, n) == 1){
 		printf("Valor %d existe na arvore\n", n);
@@ -340,5 +401,6 @@ int main(){
 		printf("Valor %d nao existe na arvore\n", n);
 	}
 }
+
 
     
