@@ -149,6 +149,25 @@ int retornaMenorValor(tipo_no** sub_raiz){
 //Ex171
 //Media
 
+int mediaArvore(tipo_no **sub_raiz, int n){
+	if(*sub_raiz == NULL){
+		return 0;
+	}
+	else{
+		return somaNos((&(*sub_raiz)->esq)) + somaNos((&(*sub_raiz)->dir)) + (*sub_raiz)->dado;
+	}
+}
+
+//Ex173
+int somaNos(tipo_no **sub_raiz){
+	if(*sub_raiz == NULL){
+		return 0;
+	}
+	else{
+		return somaNos((&(*sub_raiz)->esq)) + somaNos((&(*sub_raiz)->dir)) + (*sub_raiz)->dado;
+	}
+}
+
 int excluirMaior(tipo_no **sub_raiz){
 	tipo_no *auxiliar;
 	int dado;
@@ -393,6 +412,7 @@ int main(){
 	printf("Numero de nos:%d \n", contaNos2(Arvore));
 	printf("Numero de NULLs: %d\n", contaNulls2(Arvore));
 	printf("Numero de folhas da arvore: %d\n", numFolhas2(Arvore));	
+	printf("Soma dos valores da arvore: %d\n", somaNos(Arvore));
 	int n = 2;
 	if(verificaN2(Arvore, n) == 1){
 		printf("Valor %d existe na arvore\n", n);
@@ -400,6 +420,8 @@ int main(){
 	else{
 		printf("Valor %d nao existe na arvore\n", n);
 	}
+
+
 }
 
 
