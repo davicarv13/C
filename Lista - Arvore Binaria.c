@@ -269,7 +269,7 @@ int excluirMaior(tipo_no **sub_raiz){
 	}
 }
 
-//Excluir de forma recursiva um elemento na arvore
+//Ex181
 void excluir(tipo_no** sub_raiz, int dado){
 	tipo_no *auxiliar;
     if (*sub_raiz != NULL)
@@ -453,7 +453,7 @@ int main(){
 	insereRecursivo(Arvore, 3);
 	insereRecursivo(Arvore, 7);
 	insereRecursivo(Arvore, 4);
-	insereRecursivo(Arvore, 1);
+	insereRecursivo(Arvore, 9);
 
 	listar_em_ordem(Arvore);
 	printf("\n");
