@@ -204,6 +204,30 @@ int numFolhas(tipo_no** sub_raiz){
 	
 }
 
+//Ex177
+int retornaAltura(tipo_no **sub_raiz){
+	int altEsq = 0;
+	int altDir = 0;
+	
+	if(*sub_raiz == NULL){
+		return -1;
+	}
+	else{
+		altEsq += retornaAltura(&((*sub_raiz)->esq)) + 1; 
+		altDir += retornaAltura(&((*sub_raiz)->dir)) + 1;
+	}
+	
+	if(altEsq > altDir){
+		return altEsq;
+	}	
+	else if(altDir > altEsq){
+		return altDir;
+	}
+	else{
+		return altEsq;
+	}
+}
+
 int excluirMaior(tipo_no **sub_raiz){
 	tipo_no *auxiliar;
 	int dado;
@@ -409,6 +433,9 @@ int main(){
 	insereRecursivo(Arvore, 4);
 	insereRecursivo(Arvore, 8);
 	insereRecursivo(Arvore, 10);
+	insereRecursivo(Arvore, 0);
+	insereRecursivo(Arvore, 13);
+	insereRecursivo(Arvore, 2);
 
 	listar_em_ordem(Arvore);
 	printf("\n");
@@ -431,8 +458,8 @@ int main(){
 	else{
 		printf("Valor %d nao existe na arvore\n", n);
 	}
-
-
+	
+	printf("Altura da Arvore: %d", retornaAltura(Arvore));
 }
 
 
