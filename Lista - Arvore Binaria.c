@@ -146,7 +146,15 @@ int retornaMenorValor(tipo_no** sub_raiz){
 	}
 }
 
-
+//Ex172
+int contaNulls(tipo_no** sub_raiz){
+	if(*sub_raiz == NULL){
+		return 1;
+	}
+	else{
+		return contaNulls2(&((*sub_raiz)->esq)) + contaNulls2(&((*sub_raiz)->dir));
+	}
+}
 
 //Ex173
 int somaNos(tipo_no **sub_raiz){
@@ -155,24 +163,6 @@ int somaNos(tipo_no **sub_raiz){
 	}
 	else{
 		return somaNos((&(*sub_raiz)->esq)) + somaNos((&(*sub_raiz)->dir)) + (*sub_raiz)->dado;
-	}
-}
-
-int excluirMaior(tipo_no **sub_raiz){
-	tipo_no *auxiliar;
-	int dado;
-	
-	if(*sub_raiz != NULL){
-		if((*sub_raiz)->dir != NULL){
-			return excluirMaior(&((*sub_raiz)->dir));
-		}
-		else{
-			auxiliar = *sub_raiz;
-			dado = (*sub_raiz)->dado;
-			*sub_raiz = (*sub_raiz)->esq;
-			free(auxiliar);
-			return dado;
-		}
 	}
 }
 
@@ -212,6 +202,24 @@ int numFolhas(tipo_no** sub_raiz){
 	    }
 	}
 	
+}
+
+int excluirMaior(tipo_no **sub_raiz){
+	tipo_no *auxiliar;
+	int dado;
+	
+	if(*sub_raiz != NULL){
+		if((*sub_raiz)->dir != NULL){
+			return excluirMaior(&((*sub_raiz)->dir));
+		}
+		else{
+			auxiliar = *sub_raiz;
+			dado = (*sub_raiz)->dado;
+			*sub_raiz = (*sub_raiz)->esq;
+			free(auxiliar);
+			return dado;
+		}
+	}
 }
 
 //Excluir de forma recursiva um elemento na arvore
@@ -254,7 +262,6 @@ void excluir(tipo_no** sub_raiz, int dado){
         }
     } 
 }
-
 
 //Realiza a busca recursiva por um elemento na arvore
 tipo_no* contem(tipo_no** sub_raiz, int dado){
