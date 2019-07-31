@@ -166,6 +166,16 @@ int somaNos(tipo_no **sub_raiz){
 	}
 }
 
+//Ex174
+int contaMultiplosDeTres(tipo_no **sub_raiz){
+    if(*sub_raiz == 0){
+        return 0;
+    }
+    else{
+        return contaMultiplosDeTres(&((*sub_raiz)->esq)) + contaMultiplosDeTres(&((*sub_raiz)->dir)) + (((*sub_raiz)->dado % 3) == 0);
+    }
+}
+
 //Ex175
 int contaNos(tipo_no** sub_raiz){
 	if(*sub_raiz == NULL){
@@ -475,6 +485,8 @@ int main(){
 	else{
 	    printf("Arvore nao estritamente binaria\n");
 	}
+	
+	printf("Quantidade de numeros multiplos de 3 na arvore: %d\n", contaMultiplosDeTres(Arvore));
 }
 
 
