@@ -228,6 +228,19 @@ int retornaAltura(tipo_no **sub_raiz){
 	}
 }
 
+//Ex178
+int verificaEstritamenteBinaria(tipo_no** sub_raiz){
+    if((*sub_raiz)->esq == NULL && (*sub_raiz)->dir == NULL){
+        return 1;
+    }
+    else if((*sub_raiz)->esq != NULL && (*sub_raiz)->dir != NULL){
+        return (verificaEstritamenteBinaria(&((*sub_raiz)->esq)) && verificaEstritamenteBinaria(&((*sub_raiz)->dir)));
+    }
+    else{
+        return 0;
+    }
+}
+
 int excluirMaior(tipo_no **sub_raiz){
 	tipo_no *auxiliar;
 	int dado;
@@ -429,13 +442,8 @@ int main(){
 	insereIterativo2(Arvore, 5);
 	insereRecursivo(Arvore, 3);
 	insereRecursivo(Arvore, 7);
-	insereRecursivo(Arvore, 1);
 	insereRecursivo(Arvore, 4);
-	insereRecursivo(Arvore, 8);
-	insereRecursivo(Arvore, 10);
-	insereRecursivo(Arvore, 0);
-	insereRecursivo(Arvore, 13);
-	insereRecursivo(Arvore, 2);
+	insereRecursivo(Arvore, 1);
 
 	listar_em_ordem(Arvore);
 	printf("\n");
@@ -459,7 +467,14 @@ int main(){
 		printf("Valor %d nao existe na arvore\n", n);
 	}
 	
-	printf("Altura da Arvore: %d", retornaAltura(Arvore));
+	printf("Altura da Arvore: %d\n", retornaAltura(Arvore));
+	
+	if(verificaEstritamenteBinaria(Arvore) == 1){
+	    printf("Arvore estritamente binaria\n");
+	}
+	else{
+	    printf("Arvore nao estritamente binaria\n");
+	}
 }
 
 
