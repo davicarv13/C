@@ -86,7 +86,7 @@ void triangularInferior(float L[N][N], float y[], float b[]){
 	
 	for(i = 0; i < N; i++){
 		soma = 0;
-		for(j = 0; j < i; j++){
+		for(j = 0; j <= i-1; j++){
 			soma += L[i][j] * y[j];
 		} 
 		y[i] = (b[i] - soma) / L[i][i];
