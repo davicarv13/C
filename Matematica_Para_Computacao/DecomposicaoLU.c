@@ -56,7 +56,7 @@ void decomposicao(float A[N][N], float L[N][N], float U[N][N]){
 			for(k = 0; k <= p-1; k++){
 				soma += L[i][k]*U[k][p];
 			} 
-			L[i][p] = (1/U[p][p])*(A[i][p] - soma);
+			L[i][p] = (A[i][p] - soma) / U[p][p];
 		}
 	}
 	
