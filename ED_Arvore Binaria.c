@@ -33,6 +33,7 @@ int verificaExtritamenteBinaria(tipo_no** sub_raiz);
 int verificaArvoreBusca(tipo_no** sub_raiz);
 int excluirMaior(tipo_no** sub_raiz);
 int excluirMenor(tipo_no** sub_raiz);
+void excluir(tipo_no** sub_raiz, int dado);
 
 int menu();
 
@@ -165,6 +166,13 @@ int main(){
 					printf("Numero apagado: %d\n", menorValor);	
 				}
 			break;
+			case 20:
+				printf("Informe um numero:\n");
+				scanf("%d", &dado);
+				getchar();
+				excluir(Arvore, dado);
+				listarEmOrdem(Arvore);
+			break;
 
 		}
 
@@ -192,6 +200,7 @@ int menu(){
 	printf("17 - Verifica arvore de busca\n");
 	printf("18 - Excluir maior numero\n");
 	printf("19 - Excluir menor numero\n");
+	printf("20 - Excluir um numero N\n");
 	printf("0 - Sair\n");
 	scanf("%d", &op);
 	return op;
@@ -527,4 +536,45 @@ int excluirMenor(tipo_no** sub_raiz){
 	else{
 		return excluirMenor(&((*sub_raiz)->esq));
 	}
+}
+
+//Ex181
+void excluir(tipo_no** sub_raiz, int dado){
+	tipo_no *auxiliar;
+    if (*sub_raiz != NULL)
+    {
+        if (dado < (*sub_raiz)->dado)
+        {
+            excluir(&((*sub_raiz)->esq), dado);
+        }
+        else
+        {
+            if (dado > (*sub_raiz)->dado)
+            {
+                excluir(&((*sub_raiz)->dir), dado);
+            }
+            else
+            {
+                if ((*sub_raiz)->esq == NULL)
+                {
+                    auxiliar = *sub_raiz;
+                    *sub_raiz = (*sub_raiz)->dir;
+                    free(auxiliar);
+                }
+                else
+                {
+                    if ((*sub_raiz)->dir == NULL)
+                    {
+                        auxiliar = *sub_raiz;
+                        *sub_raiz = (*sub_raiz)->esq;
+                        free(auxiliar);
+                    }
+                    else
+                    {
+                        (*sub_raiz)->dado = excluirMaior(&((*sub_raiz)->esq));
+                    }
+                }
+            }
+        }
+    } 
 }
